@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 // import { useState } from "react";
 // import toast from "react-hot-toast";
 
-const page = () => {
+const Page = () => {
 //react hook form
 const {
   register,
@@ -94,4 +94,4 @@ const Submission=()=>{
   );
 };
 
-export default page;
+export default Page;
