@@ -1,6 +1,7 @@
 'use client'
 import React from 'react'
 import ProductSection from "../../../components/ProductSection"
+import Image from 'next/image'
 
 async function getProducts(){
   const domain ='https://cloth-inference-cd5c-git-main-dipak-khades-projects.vercel.app'
