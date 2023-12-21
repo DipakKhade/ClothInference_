@@ -12,7 +12,7 @@ async function getProducts(){
   }
   
 
-const page = async({ params }) => {
+const Page = async({ params }) => {
  
   const d=await getProducts();
   const dress=await d["products"].filter((obj)=> obj._id == params.id)[0]
@@ -95,4 +95,4 @@ const page = async({ params }) => {
   )
 }
 
-export default page
+export default Page;

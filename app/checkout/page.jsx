@@ -2,15 +2,15 @@
 import React from "react";
 import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
-const page = () => {
-  const [mounted, setMounted] = useState(false);
+const Page = () => {
+  const [Mounted, setMounted] = useState(false);
 
   useEffect(() => {
     toast.success("CheckOut and get instent delivery");
     setMounted(true);
   }, []);
 
-  if (!mounted) {
+  if (!Mounted) {
     return null;
   }
 
@@ -54,4 +54,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
