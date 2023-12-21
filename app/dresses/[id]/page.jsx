@@ -1,9 +1,11 @@
 'use client'
 import React from 'react'
 import ProductSection from "../../../components/ProductSection"
+import Image from 'next/image'
 
 async function getProducts(){
-  const res=await fetch(`${process.env.NEXT_PUBLIC__HOST}/api/products`,{
+  const domain ='https://cloth-inference-cd5c-git-main-dipak-khades-projects.vercel.app'
+  const res=await fetch(`${domain}/api/products`,{
       next:{
           revalidate:60
       }    

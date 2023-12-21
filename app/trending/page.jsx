@@ -8,8 +8,9 @@ const TrendingPage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      const domain ='https://cloth-inference-cd5c-git-main-dipak-khades-projects.vercel.app'
       try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC__HOST}/api/products`);
+        const res = await fetch(`${domain}/api/products`);
         const alldata = await res.json();
         const tr = alldata["products"].filter((item) => item.category === "trending");
         setTrendingProducts(tr);

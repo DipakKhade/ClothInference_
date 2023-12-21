@@ -9,7 +9,8 @@ const DressPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC__HOST}/api/products`);
+        const domain ='https://cloth-inference-cd5c-git-main-dipak-khades-projects.vercel.app'
+        const res = await fetch(`${domain}/api/products`);
         const alldata = await res.json();
         const dresses = alldata["products"].filter((item) => item.category === "dresses");
         setDressesProducts(dresses);
