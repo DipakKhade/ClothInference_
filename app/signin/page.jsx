@@ -3,21 +3,42 @@ import React from "react";
 import Link from "next/link";
 // import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
-// import { useState } from "react";
-// import toast from "react-hot-toast";
+import { useState } from "react";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const Page = () => {
 //react hook form
+const [isSubtting, setIsSubtting] = useState(false)
+const router = useRouter();
+//react hook form
 const {
-  register,
-  handleSubmit,
-  reset,
-  formState: { errors ,isSubmitting},
-} = useForm();
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors ,isSubmitting},
+  } = useForm();
 
-const Submission=()=>{
+  const Submission=async(data)=>{
+    const domain=''
+ 
+      const res = await fetch(`${process.env.NEXT_PUBLIC__HOST}/api/users`, {
+                method: "POST",
+                headers: {
+                  "content-type": "application/json",
+                },
+                
+                body: JSON.stringify(data),
+              });
+              let respone = await res.json();
+      setIsSubtting(true)
+    
+      toast.success('Happy to connect with you')
+      reset()
 
-}
+      router.push('/login')
+  }
+
 
   
 

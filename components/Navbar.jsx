@@ -8,7 +8,7 @@ import profilelogo from "../imgdata/img.png"
 import mainlogo from "../imgdata/mainlogo.png"
 const Navbar = () => {
   return (
-    <div className="shadow-md w-[90vw] rounded-md fixed lg:w-[80vw] z-10 top-0 ">
+    <div className="shadow-md w-[97vw] rounded-md fixed lg:w-[80vw] z-10 top-0 ml-1">
       <div className="navbar bg-base-100">
         <div className="flex-1">
           <Link href="/">
@@ -22,14 +22,14 @@ const Navbar = () => {
           </Link>
 
           <Link href={"/"}>
-            <h1 className="lg:text-2xl text-blue-700 ml-4">Colth Inference</h1>
+            <h1 className="hidden md:inline-flex lg:text-2xl text-blue-700 ml-4">Colth Inference</h1>
           </Link>
         </div>
         <div className="flex-none gap-1">
           <div className="form-control">
             <input
               type="text"
-              placeholder="Search a Product"
+              placeholder="Search"
               className="input input-bordered w-24 md:w-auto"
             />
           </div>
@@ -60,7 +60,7 @@ const Navbar = () => {
                 tabIndex={0}
                 className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content rounded-box bg-blue-50 h-64 w-48 space-y-9"
               >
-                <Link href={"/newlogin"}>
+                <Link href={"/login"}>
                   <li className="ml-3 mt-6 text-blue-600 font-medium">
                     Log In
                   </li>

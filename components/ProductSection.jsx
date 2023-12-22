@@ -17,13 +17,14 @@ const ProductSection = () => {
    {label: "Accessories",href:'/accessories'}
  ]
   return (
-    <div className="flex flex-col lg:mt-4 p-4 bg-gray-200 lg:flex-row space-x-8 font-semibold">
-      {Links.map((link) => (
+    <div className="flex flex-col  lg:mt-4 p-4 bg-gray-200 lg:flex-row space-x-8 font-semibold">
+      {Links.map((link,index) => (
         <Link
           key={link.href}
           href={link.href}
           className={classnames({
-            "text-blue-800": currentPath === link.href,
+            "ml-8":index==0,
+            "text-blue-800": currentPath === link.href ,
             "text-blue-400": currentPath !== link.href,
             "hover:transition-colors hover:text-blue-600":true
           })}

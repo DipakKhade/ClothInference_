@@ -23,7 +23,7 @@ const TrendingPage = () => {
   }, []);
 
   return (
-    <div className="lg:flex lg:flex-wrap lg:space-x-11 content-center lg:ml-24 mt-2 w-86 md:w-full">
+    <div className="lg:flex lg:flex-wrap lg:space-x-11 content-center lg:ml-24 mt-2 w-96 md:w-full">
       {trendingProducts.map((t,index) => (
         <div key={t._id}>
           <div className="mt-12  hover:shadow-lg md:ml-10">

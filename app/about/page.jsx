@@ -27,13 +27,13 @@ const page = () => {
             </svg>
             <p className="leading-relaxed text-lg ">
               Welcome to our vibrant online marketplace, crafted with passion
-              using Next.js{" "}
+              using Next.js
               <Image
                 src={nextlogo}
                 width={110}
                 // height={100}
                 alt="next js"
-                className="lg:ml-56 ml-36"
+                className="lg:ml-56 ml-28"
               ></Image>
               and styled with the sleek aesthetics of Tailwind CSS
               <Image
@@ -41,7 +41,7 @@ const page = () => {
                 width={150}
                 // height={100}
                 alt="tailwind css"
-                className="lg:ml-52 ml-32"
+                className="lg:ml-52 ml-20"
               ></Image>
               At Cloth-Inference, we strive to provide a seamless shopping
               experience, combining the power of Next.js for efficient and
@@ -51,7 +51,7 @@ const page = () => {
                 width={150}
                
                 alt='mongodb'
-                className="lg:ml-52 ml-32"
+                className="lg:ml-52 ml-24"
               ></Image>
 
             
