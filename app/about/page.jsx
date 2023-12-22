@@ -4,7 +4,7 @@ import nextlogo from "../../imgdata/nextjslogo.png";
 import tailwindlogo from "../../imgdata/tailwindlogo.jpg";
 import mongo from "../../imgdata/mongodbatlas.jpg";
 import Image from "next/image";
-
+import Link from "next/link";
 
 
 const page = () => {
@@ -51,7 +51,7 @@ const page = () => {
                 width={150}
                
                 alt='mongodb'
-                className="lg:ml-52 ml-24"
+                className="lg:ml-52 ml-20"
               ></Image>
 
             
@@ -66,9 +66,12 @@ const page = () => {
               on our platform. Happy shopping!
             </p>
             <span className="inline-block h-1 w-10 rounded bg-indigo-500 mt-8 mb-6"></span>
+            <Link href={'https://protfolio-with-next-js-dfx1.vercel.app/'}>
             <h2 className="text-gray-900 font-medium title-font tracking-wider text-sm">
               Dipak Khade
             </h2>
+            </Link>
+            
             <p className="text-gray-500"> dipakhade214@gmail.com</p>
           </div>
         </div>

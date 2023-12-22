@@ -20,9 +20,9 @@ const {
   } = useForm();
 
   const Submission=async(data)=>{
-    const domain=''
+    const domain ='https://cloth-inference-cd5c-git-main-dipak-khades-projects.vercel.app'
  
-      const res = await fetch(`${process.env.NEXT_PUBLIC__HOST}/api/users`, {
+      const res = await fetch(`${domain}/api/users`, {
                 method: "POST",
                 headers: {
                   "content-type": "application/json",

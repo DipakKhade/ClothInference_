@@ -26,7 +26,7 @@ const TshirtsPage = () => {
 
     <div className="mt-24">
     <ProductSection/>
-    <div className="lg:flex lg:flex-wrap lg:space-x-11 content-center lg:ml-24 w-[80vw] md:w-full">
+    <div className="lg:flex lg:flex-wrap lg:space-x-11 content-center lg:ml-24 w-[90vw] ml-3 md:w-full">
       {tshirtProducts.map((t,index) => (
         <div key={t._id}>
           <div className="mt-12 hover:shadow-lg  md:ml-10 ml-6">

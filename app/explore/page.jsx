@@ -3,17 +3,17 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import ProductSection from "../../components/ProductSection";
-const DressPage = () => {
-  const [dressesProducts, setDressesProducts] = useState([]);
+const ShirtsPage = () => {
+  const [Data, SetData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const domain ='https://cloth-inference-cd5c-git-main-dipak-khades-projects.vercel.app'
-        const res = await fetch(`${domain}/api/products`);
+        const res = await fetch(`http://localhost:3000/api/products`);
         const alldata = await res.json();
-        const dresses = alldata["products"].filter((item) => item.category === "dresses");
-        setDressesProducts(dresses);
+       
+        SetData(alldata["products"]);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -23,17 +23,20 @@ const DressPage = () => {
   }, []);
 
   return (
-<>
-<div className="mt-24">
-    <ProductSection/>
-    </div>
-    <div className="lg:flex lg:flex-wrap lg:space-x-11 content-center lg:ml-24 w-[90vw] ml-3 md:w-full">
-      {dressesProducts.map((t,index) => (
-        <div key={t._id}>
-          <div className="mt-12 hover:shadow-lg md:ml-10 ml-6">
-              <div className="card card-compact bg-base-100 shadow-xl w-86 md:w-96">
+    <>
 
-            <Link href={`/dresses/${t._id}`} passHref>
+<div className="mt-24">
+
+    <ProductSection/>
+</div>
+<div className=" flex flex-wrap-reverse">
+    
+      {Data.map((t,index) => (
+        <div key={t._id}>
+          <div className="mt-12 hover:shadow-lg md:w-80 w-80 ml-8 md:ml-10 flex">
+              <div className="card card-compact bg-base-100 shadow-xl">
+
+            <Link href={`/explore/${t._id}`} passHref>
                
                   <Image
                      src={t.img}
@@ -65,7 +68,8 @@ const DressPage = () => {
       ))}
     </div>
     </>
+  
   );
 };
 
-export default DressPage;
+export default ShirtsPage;

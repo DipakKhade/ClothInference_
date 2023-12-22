@@ -1,31 +1,31 @@
 import { Suspense } from "react";
 import ProductSection from "../components/ProductSection";
-import TrendingPage from "./trending/page"
-import { ImFire } from "react-icons/im";
-import Loading from "./loading"
+import TrendingPage from "./trending/page";
+import { FaLongArrowAltRight } from "react-icons/fa";
+import Link from "next/link";
+import Loading from "./loading";
 export default function Home() {
-
-
   return (
     <>
       <div className="pt-24 text-2xl lg:text-4xl ml-6 lg:pt-28 pb-6">
-      <div className="font-semibold text-blue-500 md:hidden">Cloth Inference</div>
+        <div className="font-semibold text-blue-500 md:hidden">
+          Cloth Inference
+        </div>
         Your Closet, <span className="text-blue-500">Redefined</span>.
       </div>
-      <h1 className="mb-12 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">
+      <h1 className="mb-6 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">
         we strive to provide a seamless shopping experience
       </h1>
-      
-      <ProductSection/>
-      <h2 className="text-2xl mt-6 text-blue-400 ml-6 flex">
-          Trending
-          <ImFire className="ml-3" />
-        </h2>
-        <Suspense fallback={<Loading/>}>
+      <div>
+      <Link href={'/explore'}>
+      <button className="btn btn-neutral mb-6 ml-10 bg-blue-500 text-white">explore <span><FaLongArrowAltRight /></span></button></Link>
+      </div>
 
-<TrendingPage/>
-        </Suspense>
-
+      <ProductSection />
+     
+      <Suspense fallback={<Loading />}>
+        <TrendingPage />
+      </Suspense>
     </>
   );
 }

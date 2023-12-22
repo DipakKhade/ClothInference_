@@ -13,7 +13,7 @@ const ProductSection = () => {
    {label: "T-Shirts",href:'/tshirts'},
    {label: "Shirts",href:'/shirts'},
    {label: "Dresses",href:'/dresses'},
-   {label: "Bottoms",href:'/bottoms'},
+   {label: "Jeans",href:'/jeans'},
    {label: "Accessories",href:'/accessories'}
  ]
   return (

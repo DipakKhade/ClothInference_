@@ -49,7 +49,7 @@ const Page = () => {
           placeholder="Address (Area and Street)"
         ></textarea>
       </div>
-      <button className="btn btn-info ml-40 mt-8">SAVE AND DELIVER HERE</button>
+      <button className="btn btn-info ml-7 md:ml-40 mt-8">SAVE AND DELIVER HERE</button>
     </div>
   );
 };

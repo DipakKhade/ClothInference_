@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { ImFire } from "react-icons/im";
 
 const TrendingPage = () => {
   const [trendingProducts, setTrendingProducts] = useState([]);
@@ -23,7 +24,13 @@ const TrendingPage = () => {
   }, []);
 
   return (
-    <div className="lg:flex lg:flex-wrap lg:space-x-11 content-center lg:ml-24 mt-2 w-96 md:w-full">
+    <>
+       <h2 className="text-2xl mt-6 text-blue-400 ml-6 flex">
+        Trending
+        <ImFire className="ml-3" />
+      </h2>
+    
+    <div className="lg:flex lg:flex-wrap lg:space-x-11 content-center lg:ml-24 mt-2 ml-4 w-[90vw] md:w-full">
       {trendingProducts.map((t,index) => (
         <div key={t._id}>
           <div className="mt-12  hover:shadow-lg md:ml-10">
@@ -60,6 +67,7 @@ const TrendingPage = () => {
         </div>
       ))}
     </div>
+    </>
   );
 };
 
