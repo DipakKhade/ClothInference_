@@ -70,9 +70,9 @@ const page = () => {
             <h2 className="text-gray-900 font-medium title-font tracking-wider text-sm">
               Dipak Khade
             </h2>
-            </Link>
             
             <p className="text-gray-500"> dipakhade214@gmail.com</p>
+            </Link>
           </div>
         </div>
       </section>

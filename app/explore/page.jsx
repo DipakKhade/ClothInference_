@@ -10,7 +10,7 @@ const ShirtsPage = () => {
     const fetchData = async () => {
       try {
         const domain ='https://cloth-inference-cd5c-git-main-dipak-khades-projects.vercel.app'
-        const res = await fetch(`http://localhost:3000/api/products`);
+        const res = await fetch(`${domain}/api/products`);
         const alldata = await res.json();
        
         SetData(alldata["products"]);
