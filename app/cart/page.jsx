@@ -3,7 +3,7 @@ import React from "react";
 import { useState, useEffect,Suspense,lazy } from "react";
 import Link from "next/link";
 const LazyImage = lazy(() => import('next/image'));
-const page = () => {
+const Page = () => {
   const [cartItem, setCartItem] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -110,7 +110,7 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
 
 // http://localhost:3000/tshirts/65845d3a8155cf38099e3857
 // http://localhost:3000/tshirt/65845d3a8155cf38099e3857
