@@ -9,15 +9,14 @@ const ProductSection = () => {
   // console.log(currentPath, Link.href);
 
  const Links=[
-  {label:"Trending", href:'/'},
+  {label:"Home",href:'/'},
+  {label:"Trending", href:'/trending'},
    {label: "T-Shirts",href:'/tshirts'},
    {label: "Shirts",href:'/shirts'},
-   {label: "Dresses",href:'/dresses'},
-   {label: "Jeans",href:'/jeans'},
-   {label: "Accessories",href:'/accessories'}
+   {label: "Dresses",href:'/dresses'}
  ]
   return (
-    <div className="flex flex-col  lg:mt-4 p-4 bg-gray-200 lg:flex-row space-x-8 font-semibold">
+    <div className="flex flex-col w-[96vw] md:w-[80vw] lg:mt-4 p-4 bg-gray-200 lg:flex-row space-x-8 font-semibold">
       {Links.map((link,index) => (
         <Link
           key={link.href}

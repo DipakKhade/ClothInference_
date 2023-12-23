@@ -48,7 +48,7 @@ const Submission = async (data) => {
 
 
   return (
-    <div className='min-h-screen'>
+    <div>
       <div className="bg-blue-50 mt-24 lg:mt-8 lg:ml-8">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0  mr-3">
           <Link

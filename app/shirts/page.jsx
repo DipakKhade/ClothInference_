@@ -1,8 +1,9 @@
 'use client'
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect ,Suspense} from "react";
 import Link from "next/link";
-import Image from "next/image";
 import ProductSection from "../../components/ProductSection";
+import { lazy } from "react";
+const LazyImage=lazy(()=>import('next/image'))
 const ShirtsPage = () => {
   const [shirtProducts, setShirtProducts] = useState([]);
 
@@ -10,6 +11,7 @@ const ShirtsPage = () => {
     const fetchData = async () => {
       try {
         const domain ='https://cloth-inference-cd5c-git-main-dipak-khades-projects.vercel.app'
+        const local='http://localhost:3000'
         const res = await fetch(`${domain}/api/products`);
         const alldata = await res.json();
         const shirts = alldata["products"].filter((item) => item.category === "shirts");
@@ -30,32 +32,36 @@ const ShirtsPage = () => {
         <div key={t._id}>
           <div className="mt-12 hover:shadow-lg md:w-full md:ml-10 ml-6">
               <div className="card card-compact bg-base-100 shadow-xl w-86 md:w-96">
-
-            <Link href={`/trending/${t._id}`} passHref>
-               
-                  <Image
-                     src={t.img}
-                  width={300}
-                  height={400}
-                  alt="img"
-                  className="w-[300px] h-[400px] rounded-md m-auto"
-                  priority={index == 0 && index==1}
-                  />
-               
+              <Suspense fallback={<p>Loading...</p>}>
+                  <Link href={`/shirts/${t._id}`} passHref>
+                  
+                      <LazyImage
+                        src={t.img}
+                        width={300}
+                        height={400}
+                        alt="img"
+                        className="w-[300px] h-[400px] rounded-md m-auto"
+                        priority={index === 0 && index === 1}
+                      />
+                
                   </Link>
+                </Suspense>
                 <div className="card-body">
+                <Link href={`/shirts/${t._id}`} passHref>
                   <h2 className="card-title">{t.name}</h2>
                   <h2 className="text-xl">₹{t.price}</h2>
                   <p>
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                     Odio ab fuga excepturi.
                   </p>
+                </Link>
                   <div className="card-actions justify-end">
                     <Link href={`/checkout`} passHref>
                       <button className="btn bg-blue-400">Buy Now</button>
                     </Link>
                   </div>
                 </div>
+
               </div>
             
           </div>

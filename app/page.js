@@ -1,13 +1,15 @@
-import { Suspense } from "react";
+import { Suspense ,lazy } from "react";
 import ProductSection from "../components/ProductSection";
-import TrendingPage from "./trending/page";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import Link from "next/link";
-import Loading from "./loading";
+import HomeProducts from "../components/HomeProducts";
+
+
+
 export default function Home() {
   return (
     <>
-      <div className="pt-24 text-2xl lg:text-4xl ml-6 lg:pt-28 pb-6">
+      <div className="pt-24 text-2xl lg:text-4xl ml-6 lg:pt-28 pb-6 ">
         <div className="font-semibold text-blue-500 md:hidden">
           Cloth Inference
         </div>
@@ -18,14 +20,17 @@ export default function Home() {
       </h1>
       <div>
       <Link href={'/explore'}>
-      <button className="btn btn-neutral mb-6 ml-10 bg-blue-500 text-white">explore <span><FaLongArrowAltRight /></span></button></Link>
+      <button className="btn btn-neutral border-blue-400 mb-6 ml-10 bg-blue-500 text-white">explore <span><FaLongArrowAltRight /></span></button></Link>
       </div>
 
       <ProductSection />
      
-      <Suspense fallback={<Loading />}>
-        <TrendingPage />
-      </Suspense>
+     <div className="min-h-screen">
+      
+      
+       <HomeProducts/>
+      
+     </div>
     </>
   );
 }

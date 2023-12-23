@@ -1,15 +1,17 @@
 'use client'
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect ,lazy ,Suspense} from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ImFire } from "react-icons/im";
-
+import ProductSection from "../../components/ProductSection";
+const LazyImage =lazy(()=>import('next/image'))
 const TrendingPage = () => {
   const [trendingProducts, setTrendingProducts] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       const domain ='https://cloth-inference-cd5c-git-main-dipak-khades-projects.vercel.app'
+      const local='http://localhost:3000'
       try {
         const res = await fetch(`${domain}/api/products`);
         const alldata = await res.json();
@@ -25,7 +27,9 @@ const TrendingPage = () => {
 
   return (
     <>
-       <h2 className="text-2xl mt-6 text-blue-400 ml-6 flex">
+
+    <div className="mt-24"><ProductSection/></div>
+       <h2 className="text-2xl mt-6 text-blue-800 ml-6 flex">
         Trending
         <ImFire className="ml-3" />
       </h2>
@@ -35,26 +39,30 @@ const TrendingPage = () => {
         <div key={t._id}>
           <div className="mt-12  hover:shadow-lg md:ml-10">
               <div className="card card-compact  bg-base-100 shadow-xl  w-86 md:w-96">
-
-            <Link href={`/trending/${t._id}`} passHref>
-               
-                  <Image
-                     src={t.img}
-                  width={300}
-                  height={400}
-                  alt="img"
-                  className="w-[300px] h-[400px] rounded-md m-auto"
-                  priority={index == 0 && index==1}
-                  />
-               
+              <Suspense fallback={<p>Loading...</p>}>
+                  <Link href={`/trending/${t._id}`} passHref>
+                  
+                      <LazyImage
+                        src={t.img}
+                        width={300}
+                        height={400}
+                        alt="img"
+                        className="w-[300px] h-[400px] rounded-md m-auto"
+                        priority={index === 0 && index === 1}
+                      />
+                
                   </Link>
+                </Suspense>
+
                 <div className="card-body">
+                <Link href={`/trending/${t._id}`} passHref>
                   <h2 className="card-title">{t.name}</h2>
                   <h2 className="text-xl">₹{t.price}</h2>
                   <p>
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                     Odio ab fuga excepturi.
                   </p>
+                </Link>
                   <div className="card-actions justify-end">
                     <Link href={`/checkout`} passHref>
                       <button className="btn bg-blue-400">Buy Now</button>

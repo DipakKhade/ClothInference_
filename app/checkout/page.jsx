@@ -15,7 +15,7 @@ const Page = () => {
   }
 
   return (
-    <div className="mt-28">
+    <div className="mt-28 mr-5">
       <h2 className=" text-3xl m-auto ml-[36vw] text-blue-500"> CheckOut</h2>
 
       <div className="space-y-6 ml-8 mt-7">

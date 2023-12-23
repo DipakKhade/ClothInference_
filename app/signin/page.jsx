@@ -44,7 +44,7 @@ const {
 
   return (
     <div className="bg-white mt-24 z-0">
-      <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 z-10 relative">
+      <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 relative">
         <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">
           we strive to provide a seamless shopping experience
         </h1>
@@ -101,10 +101,10 @@ const {
           </div>
 
           <p className="text-sm font-light text-gray-500 mt-6">
-            have an Account
+            have an Account ?
             <Link
               href={"/login"}
-              className="font-medium text-black hover:underline dark:text-primary-500"
+              className="font-medium text-black hover:underline dark:text-primary-500 ml-2"
             >
               Log In
             </Link>
