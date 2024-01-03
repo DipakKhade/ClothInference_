@@ -34,6 +34,19 @@ const Page = () => {
     "https://cloth-inference-cd5c-git-main-dipak-khades-projects.vercel.app";
   const local = "http://localhost:3000";
 
+// const removeFromCart=(itemId)=>{
+//   if (!itemId) {
+//     console.error("Error: 'itemId' is null or undefined");
+//     return;
+//   }
+
+//   localStorage.removeItem(itemId);
+
+//   setCartItem((prevCart) => prevCart.filter((item) => item.id !== itemId));
+//   };
+
+
+
 
   return (
  
@@ -78,10 +91,15 @@ const Page = () => {
               <div className="w-3/4">{item && item.id}</div>
             </div>
           
-            <div className="px-6 py-4">
+            <div className="px-6 py-4 flex space-x-8">
               <Link href={`${local}/${item && item.category}/${item && item.id}`} className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                 Edit
               </Link>
+              <button
+              // onClick={removeFromCart}
+             className="font-medium text-red-600 dark:text-blue-500 hover:underline">
+                Remove from Cart
+              </button>
             </div>
 
             

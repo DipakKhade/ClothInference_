@@ -27,8 +27,9 @@ export default function Home() {
      
      <div className="min-h-screen">
       
-      
-       <HomeProducts/>
+     <Suspense fallback={<div>Loading...</div>}>
+          <HomeProducts />
+        </Suspense>
       
      </div>
     </>
