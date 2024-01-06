@@ -14,7 +14,7 @@ const TshirtsPage = () => {
       const domain ='https://cloth-inference-cd5c-git-main-dipak-khades-projects.vercel.app'
       const local='http://localhost:3000'
       try {
-        const res = await fetch(`${local}/api/products`);
+        const res = await fetch(`${domain}/api/products`);
         const alldata = await res.json();
         const tshirts = alldata["products"].filter((item) => item.category === "tshirt");
         setTshirtProducts(tshirts);

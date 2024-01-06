@@ -9,7 +9,6 @@ const LazyImage = lazy(() => import("next/image"));
 function Page({ params }) {
   const [dress, setDress] = useState(null);
   const [Mounted, setMounted] = useState(false);
-  const [Loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,19 +26,17 @@ function Page({ params }) {
         (obj) => obj._id === params.id
       )[0];
       setDress(filteredDress);
-      setLoading(false)
+
     };
 
     fetchData();
   }, [params.id]);
 
   if (!dress) {
-    return <p className="mt-[45vh] ml-[42vw] min-h-screen text-blue-600">Loading...</p>;
+    return <span className="loading loading-spinner md:mt-[45vh] ml-[42vw] min-h-screen text-blue-600"></span>
   }
 
-  if (Loading) {
-    return <p className="mt-8 ml-60 text-blue-500">Loading...</p>;
-  }
+ 
 
   const addToCart = () => {
     localStorage.setItem(
