@@ -2,6 +2,7 @@
 import { useState, useEffect, Suspense, lazy } from "react";
 import Link from "next/link";
 
+
 const LazyImage = lazy(() => import("next/image"));
 
 const HomeProducts = () => {

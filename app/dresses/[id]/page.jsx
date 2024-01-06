@@ -9,6 +9,7 @@ const LazyImage = lazy(() => import("next/image"));
 function Page({ params }) {
   const [dress, setDress] = useState(null);
   const [Mounted, setMounted] = useState(false);
+  const [Loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,6 +27,7 @@ function Page({ params }) {
         (obj) => obj._id === params.id
       )[0];
       setDress(filteredDress);
+      setLoading(false)
     };
 
     fetchData();
@@ -33,6 +35,9 @@ function Page({ params }) {
 
   if (!dress) {
     return <p>Loading...</p>;
+  }
+  if (Loading) {
+    return <p className="mt-8 ml-60 text-blue-500">Loading...</p>;
   }
 
   const addToCart = () => {
