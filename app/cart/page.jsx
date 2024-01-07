@@ -2,10 +2,14 @@
 import React from "react";
 import { useState, useEffect,Suspense,lazy } from "react";
 import Link from "next/link";
+import { Router, useRouter } from "next/navigation";
 const LazyImage = lazy(() => import('next/image'));
+
 const Page = () => {
+  
+const router = useRouter()
   const [cartItem, setCartItem] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [Loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,39 +23,53 @@ const Page = () => {
       } catch (error) {
         console.error("Error fetching and parsing data:", error);
       } finally {
-        setIsLoading(false);
+        setLoading(false);
       }
     };
 
     fetchData();
   }, []); // Empty dependency array to run the effect only once
 
-  if (isLoading) {
-    return <p>Loading...</p>;
+  if (Loading) {
+    return <div className="md:mt-60 md:ml-48 text-blue-600 mb-80 mt-40 ml-8 flex">fetching your cart <span className="loading loading-spinner loading-sm ml-3"></span></div>;
   }
 
   const domain =
     "https://cloth-inference-cd5c-git-main-dipak-khades-projects.vercel.app";
   const local = "http://localhost:3000";
 
-// const removeFromCart=(itemId)=>{
-//   if (!itemId) {
-//     console.error("Error: 'itemId' is null or undefined");
-//     return;
-//   }
 
-//   localStorage.removeItem(itemId);
+  const removeFromCart = (itemId) => {
+    // console.log(itemId)
+    const ar = [];
+  
+    for (let i = 0; i < localStorage.length; i++) {
+      const localkeys = localStorage.key(i);
+      const localitems = JSON.parse(localStorage.getItem(localkeys));
+ 
+      if (localitems && localitems.id) {
+        ar.push(localitems);
+      }
+    }
+  
+    const filteredArray = ar.filter((item) => item.id !== itemId);
+  localStorage.clear();
 
-//   setCartItem((prevCart) => prevCart.filter((item) => item.id !== itemId));
-//   };
+  filteredArray.map((fitem)=>{
+    localStorage.setItem(fitem.id, JSON.stringify(fitem));
+  })
+window.location.reload();
+  };
 
-
-
+  
+  
 
   return (
  
 
-<div className='mt-40 mb-48 min-h-screen flex flex-col'>
+
+<div className='mt-24 mb-48 min-h-screen flex flex-col'>
+<h1 className="font-extrabold text-xl m-6 text-green-500">Your Cart</h1>
       <div className="relative overflow-x-auto sm:rounded-lg ">
         {cartItem.map((item) => (
           <div key={(Math.random() * 100)} className="bg-blue-200 shadow-md mb-4 p-4">
@@ -92,12 +110,12 @@ const Page = () => {
             </div>
           
             <div className="px-6 py-4 flex space-x-8">
-              <Link href={`${local}/${item && item.category}/${item && item.id}`} className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+              <Link href={`${domain}/${item && item.category}/${item && item.id}`}  className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                 Edit
               </Link>
               <button
-              // onClick={removeFromCart}
-             className="font-medium text-red-600 dark:text-blue-500 hover:underline">
+              onClick={()=>removeFromCart(item && item.id)}
+             className="text-red-500 hover:underline">
                 Remove from Cart
               </button>
             </div>

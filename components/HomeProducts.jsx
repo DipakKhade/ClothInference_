@@ -68,7 +68,18 @@ const HomeProducts = () => {
             </div>
           </div>
         ))}
+
+     
       </div>
+      <div className="join grid grid-cols-2 mt-6 md:ml-44 md:w-[60vw] ml-12 ">
+      <Link href={'/login'}>
+
+  <button className="join-item btn btn-outline">Previous page</button>
+      </Link>
+      <Link href={'/trending'}>
+  <button className="join-item btn btn-outline md:ml-80">Next</button>
+  </Link>
+</div>
     </div>
   );
 };
