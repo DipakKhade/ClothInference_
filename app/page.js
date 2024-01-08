@@ -7,6 +7,7 @@ import HomeProducts from "../components/HomeProducts";
 
 
 export default function Home() {
+  
   return (
     <>
       <div className="pt-24 text-2xl lg:text-4xl ml-6 lg:pt-28 pb-6 ">

@@ -3,6 +3,6 @@ const nextConfig = {}
 
 module.exports = {
     images: {
-      domains: ['rukminim2.flixcart.com'],
+      domains: ['rukminim2.flixcart.com','avatars.githubusercontent.com'],
     },
   };

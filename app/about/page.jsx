@@ -5,6 +5,7 @@ import tailwindlogo from "../../imgdata/tailwindlogo.jpg";
 import mongo from "../../imgdata/mongodbatlas.jpg";
 import Image from "next/image";
 import Link from "next/link";
+import nextauthimg from "../../imgdata/next_auth.png";
 
 
 const page = () => {
@@ -54,7 +55,14 @@ const page = () => {
                 className="lg:ml-52 ml-20"
               ></Image>
 
-            
+and NextAuth for authentication for Cloth Inference application.
+              <Image
+                src={nextauthimg}
+                width={250}
+                // height={250}
+                className="lg:ml-[11vw] ml-24 mt-2 mb-2"
+                alt="next auth"
+              ></Image>
                
               for a
               modern and responsive design. Our platform is designed with you in
