@@ -12,7 +12,7 @@ const HomeProducts = () => {
   useEffect(() => {
     const fetchData = async () => {
       const local = "http://localhost:3000";
-      const domain ='https://cloth-inference-cd5c-git-main-dipak-khades-projects.vercel.app'
+      const domain ='https://cloth-inference-cd5c.vercel.app/'
       try {
         const res = await fetch(`${domain}/api/products`);
         const alldata = await res.json();

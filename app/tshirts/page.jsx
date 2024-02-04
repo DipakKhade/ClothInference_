@@ -11,7 +11,7 @@ const TshirtsPage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const domain ='https://cloth-inference-cd5c-git-main-dipak-khades-projects.vercel.app'
+      const domain ='https://cloth-inference-cd5c.vercel.app/'
       const local='http://localhost:3000'
       try {
         const res = await fetch(`${domain}/api/products`);
